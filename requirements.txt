@@ -1,0 +1,15 @@
+accelerate==1.9.0
+codetiming
+datasets=4.0.0
+dill
+flash-attn
+hydra-core
+numpy
+pandas
+pybind11
+ray
+transformers==4.51.1
+vllm==0.8.5.post1
+torch==2.6.0
+verl==0.4.1.dev0
+swanlab
