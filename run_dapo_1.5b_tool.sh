@@ -11,7 +11,7 @@ adv_estimator=grpo
 
 use_kl_in_reward=False
 kl_coef=0.01
-use_kl_loss=True
+use_kl_loss=False
 kl_loss_coef=0.01
 
 clip_ratio_low=0.2
@@ -80,7 +80,7 @@ python3 -m recipe.dapo.main_dapo \
     +model.fsdp_config.model_dtype=bf16 \
     actor_rollout_ref.actor.optim.lr=1e-6 \
     actor_rollout_ref.actor.optim.lr_warmup_steps=10 \
-    actor_rollout_ref.actor.optim.weight_decay=0.1 \
+    actor_rollout_ref.actor.optim.weight_decay=0.01 \
     actor_rollout_ref.actor.ppo_mini_batch_size=${train_prompt_mini_bsz} \
     actor_rollout_ref.actor.ppo_micro_batch_size=${train_micro_batch_size} \
     actor_rollout_ref.actor.fsdp_config.param_offload=${offload} \
@@ -122,5 +122,5 @@ python3 -m recipe.dapo.main_dapo \
     trainer.max_critic_ckpt_to_keep=3 \
     trainer.test_freq=15 \
     trainer.save_freq=30 \
-    trainer.total_epochs=15 \
+    trainer.total_epochs=60 \
     trainer.default_local_dir=$CKPT_DIR \
